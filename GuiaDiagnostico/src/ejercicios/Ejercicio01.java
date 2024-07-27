@@ -26,7 +26,7 @@ public class Ejercicio01 {
 		}
 		
 	    for(i = 1; i < numFilas; i++) {
-	    	System.out.printf("%d - %d\n",acum, m[i][i]);
+	    	// System.out.printf("%d - %d\n",acum, m[i][i]);
 	    	if(m[i][i] != acum)
 	    		return false;
 	    	acum += m[i][i];
