@@ -4,6 +4,7 @@ import ejercicios.Ejercicio01;
 import ejercicios.Ejercicio02;
 import ejercicios.Ejercicio03;
 import ejercicios.Ejercicio04;
+import ejercicios.Ejercicio05;
 
 public class Main {
 
@@ -30,6 +31,13 @@ public class Main {
 				{5, -6, -6, 20},
 				{1, 1, 10, 10},
 		};
+
+		int[][]m5 = {
+				{1, 2, 3, 4},
+				{5, 6, 7, 8},
+				{9, 10, 11, 12},
+				{13, 14, 15, 16}
+		};
 		if(Ejercicio01.resolver(m3))
 			System.out.println("Comprueba la regla");
 		else
@@ -51,6 +59,15 @@ public class Main {
 		System.out.println("Vector resultado:");	
 		for(int i = 0; i < resultado.length; i ++)
 			System.out.print(resultado[i] + " ");
+		
+		System.out.println();
+		System.out.println();
+		int resultado05[][] = Ejercicio05.resolver(m5);
+		for(int i = 0; i < resultado05.length; i ++) {
+			for(int j = 0; j < resultado05[i].length; j ++)
+				System.out.print(resultado05[i][j] + " ");
+			System.out.println();
+		}
 	}
 
 }
