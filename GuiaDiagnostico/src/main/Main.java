@@ -32,6 +32,12 @@ public class Main {
 				{1, 1, 10, 10},
 		};
 
+		int[][]m03 = {
+				{8, 2, -3, 4},
+				{5, -6, -6, 20},
+				{21, 1, -5, 0},
+		};
+
 		int[][]m5 = {
 				{1, 2, 3, 4},
 				{5, 6, 7, 8},
@@ -47,7 +53,16 @@ public class Main {
 			System.out.println("Da 0");
 		else
 			System.out.println("No da 0");
-		Ejercicio03.resolver(m);
+		System.out.println();
+		System.out.println();
+		int resultadoE03[][] = Ejercicio03.resolver(m03);
+		for(int i = 0; i < resultadoE03.length; i ++) {
+			for(int j = 0; j < resultadoE03[i].length; j ++)
+				System.out.print(resultadoE03[i][j] + " ");
+			System.out.println();
+		}
+		System.out.println();
+		System.out.println();
 		int resultado[] = Ejercicio04.resolver(m4);
 		
 		System.out.println("Matriz:");
