@@ -16,7 +16,16 @@ public class Ejercicio03 {
 	 * 27 11 -10 15
 	 */
 	public static int[][] resolver(int[][] m) {
-		// completar
-		return null;
+		int numFilas = m.length;
+	    int numColumnas = m[0].length;
+	    int i;
+	    int j;
+	    int [][]resultado = new int[numFilas][numColumnas];
+	    
+	    
+		for(i = 0; i < m.length; i++)
+			for(j = 0; j < m[0].length; j++)
+				;
+		return resultado;
 	}
 }
