@@ -24,58 +24,58 @@ public class Ejercicio05 {
 	 */
 	
 	//-------------- Mi solucion ---------------
-//	public static int[][] resolver(int[][] m) {
-//	    int resultado[][] = new int[2 * m.length - 1][m.length];
-//	    
-//		if(m.length != m[0].length) {
-//			System.out.println("La matriz no es cuadrada.");
-//			return null;
-//		}
-//		
-//		for(int i = m.length - 1; i >= 0; i--)		
-//			for(int j = 0; j < m.length - i ; j++)
-//				resultado[m.length - i - 1][j] = m[i + j][j];
-//
-//		for(int i = 1; i < m.length; i ++)	
-//			for(int j = 0; j < m.length - i ; j++)
-//				resultado[m.length + i - 1][j] = m[j][i + j];
-//		
-//		
-//		return resultado;
-//	}
+	public static int[][] resolver(int[][] m) {
+	    int resultado[][] = new int[2 * m.length - 1][m.length];
+	    
+		if(m.length != m[0].length) {
+			System.out.println("La matriz no es cuadrada.");
+			return null;
+		}
+		
+		for(int i = m.length - 1; i >= 0; i--)		
+			for(int j = 0; j < m.length - i ; j++)
+				resultado[m.length - i - 1][j] = m[i + j][j];
+
+		for(int i = 1; i < m.length; i ++)	
+			for(int j = 0; j < m.length - i ; j++)
+				resultado[m.length + i - 1][j] = m[j][i + j];
+		
+		
+		return resultado;
+	}
 	
 	//-------------- Solucion ChatGPT ---------------
-    public static int[][] resolver(int[][] m) {
-        if (m.length != m[0].length) {
-            System.out.println("La matriz no es cuadrada.");
-            return null;
-        }
-
-        List<List<Integer>> resultadoList = new ArrayList<>();
-        
-        for (int i = m.length - 1; i >= 0; i--) {
-            List<Integer> diagonal = new ArrayList<>();
-            for (int j = 0; j < m.length - i; j++) {
-                diagonal.add(m[i + j][j]);
-            }
-            resultadoList.add(diagonal);
-        }
-
-        for (int i = 1; i < m.length; i++) {
-            List<Integer> diagonal = new ArrayList<>();
-            for (int j = 0; j < m.length - i; j++) {
-                diagonal.add(m[j][i + j]);
-            }
-            resultadoList.add(diagonal);
-        }
-
-        // Convertir la lista de listas a un array bidimensional
-        int[][] resultado = new int[resultadoList.size()][];
-        for (int i = 0; i < resultadoList.size(); i++) {
-            List<Integer> diagonal = resultadoList.get(i);
-            resultado[i] = diagonal.stream().mapToInt(Integer::intValue).toArray();
-        }
-        
-        return resultado;
-    }
+//    public static int[][] resolver(int[][] m) {
+//        if (m.length != m[0].length) {
+//            System.out.println("La matriz no es cuadrada.");
+//            return null;
+//        }
+//
+//        List<List<Integer>> resultadoList = new ArrayList<>();
+//        
+//        for (int i = m.length - 1; i >= 0; i--) {
+//            List<Integer> diagonal = new ArrayList<>();
+//            for (int j = 0; j < m.length - i; j++) {
+//                diagonal.add(m[i + j][j]);
+//            }
+//            resultadoList.add(diagonal);
+//        }
+//
+//        for (int i = 1; i < m.length; i++) {
+//            List<Integer> diagonal = new ArrayList<>();
+//            for (int j = 0; j < m.length - i; j++) {
+//                diagonal.add(m[j][i + j]);
+//            }
+//            resultadoList.add(diagonal);
+//        }
+//
+//        // Convertir la lista de listas a un array bidimensional
+//        int[][] resultado = new int[resultadoList.size()][];
+//        for (int i = 0; i < resultadoList.size(); i++) {
+//            List<Integer> diagonal = resultadoList.get(i);
+//            resultado[i] = diagonal.stream().mapToInt(Integer::intValue).toArray();
+//        }
+//        
+//        return resultado;
+//    }
 }
