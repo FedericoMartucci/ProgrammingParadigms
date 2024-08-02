@@ -1,28 +1,31 @@
 package objetos.ejercicio05;
 
 public class TarjetaBaja {
-	// completar
+	private double saldo;
+	private int viajesColetivo;
+	private int viajesSubte;
 	
 		/**
 		 * post: saldo de la Tarjeta en saldoInicial.
 		 */
 		public TarjetaBaja(double saldoInicial) {
-			// completar
+			this.saldo = saldoInicial;
+			this.viajesColetivo = 0;
+			this.viajesSubte = 0;
 		}
 
 		/**
 		 * post: devuelve el saldo actual de la Tarjeta
 		 */
 		public double obtenerSaldo() {
-			// completar
-			return -1;
+			return this.saldo;
 		}
 
 		/**
 		 * post: agrega el monto al saldo de la Tarjeta.
 		 */
 		public void cargar(double monto) {
-			// completar
+			this.saldo += monto;
 		}
 
 		/**
@@ -30,37 +33,36 @@ public class TarjetaBaja {
 		 * colectivo.
 		 */
 		public void pagarViajeEnColectivo() {
-			// completar
+			this.saldo -= 39.59;
+			this.viajesColetivo += 1;
 		}
 
 		/**
 		 * pre : saldo suficiente. post: utiliza 34.50 del saldo para un viaje en subte.
 		 */
 		public void pagarViajeEnSubte() {
-			// completar
+			this.saldo -= 34.5;
+			this.viajesSubte += 1;
 		}
 
 		/**
 		 * post: devuelve la cantidad de viajes realizados.
 		 */
 		public int contarViajes() {
-			// completar
-			return -1;
+			return this.viajesColetivo + this.viajesSubte;
 		}
 
 		/**
 		 * post: devuelve la cantidad de viajes en colectivo.
 		 */
 		public int contarViajesEnColectivo() {
-			// completar
-			return -1;
+			return this.viajesColetivo;
 		}
 
 		/**
 		 * post: devuelve la cantidad de viajes en subte.
 		 */
 		public int contarViajesEnSubte() {
-			// completar
-			return -1;
+			return this.viajesSubte;
 		}
 }
