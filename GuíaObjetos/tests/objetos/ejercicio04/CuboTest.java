@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class CuboTest {
-	
+
 	@Test
 	public void creacionCubo() {
 		Cubo c = new Cubo(2);
@@ -19,7 +19,7 @@ public class CuboTest {
 		Cubo c = new Cubo(1);
 
 		assertEquals(1, c.obtenerLado());
-		
+
 		c.cambiarLado(3);
 		assertEquals(3, c.obtenerLado());
 	}
@@ -28,7 +28,7 @@ public class CuboTest {
 	public void cambiarValorArea() {
 		int valorArea = 250;
 		Cubo c = new Cubo(2);
-		
+
 		c.cambiarAreaCara(valorArea);
 
 		assertEquals(Math.sqrt(valorArea), c.obtenerLado());
@@ -46,10 +46,10 @@ public class CuboTest {
 	public void cambiarValorVolumen() {
 		int valorVolumen = 250;
 		Cubo c = new Cubo(2);
-		
+
 		c.cambiarVolumen(valorVolumen);
 
-		assertEquals(Math.pow(valorVolumen, 1/3), c.obtenerLado());
+		assertEquals(Math.pow(valorVolumen, 1 / 3), c.obtenerLado());
 	}
 
 	@Test

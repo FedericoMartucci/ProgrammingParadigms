@@ -3,33 +3,33 @@ package objetos.ejercicio02;
 public class Punto {
 	private double x;
 	private double y;
-	
+
 	public Punto() {
 		this.x = 0;
 		this.y = 0;
 	}
-	
+
 	public Punto(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
-	
+
 	public double obtenerX() {
 		return this.x;
 	}
-	
+
 	public double obtenerY() {
 		return this.y;
 	}
-	
+
 	public void cambiarX(double nuevoX) {
 		this.x = nuevoX;
 	}
-	
+
 	public void cambiarY(double nuevoY) {
 		this.y = nuevoY;
 	}
-	
+
 	public boolean estaSobreEjeX() {
 		return this.obtenerX() == 0;
 	}
@@ -45,9 +45,10 @@ public class Punto {
 	public double distanciaAlOrigen() {
 		return Math.sqrt(Math.pow(this.obtenerX(), 2) + Math.pow(this.obtenerY(), 2));
 	}
-	
+
 	public double distanciaAotroPunto(Punto otro) {
-		return Math.sqrt(Math.pow(this.obtenerX() - otro.obtenerX(), 2) + Math.pow(this.obtenerY() - otro.obtenerY(), 2));
+		return Math
+				.sqrt(Math.pow(this.obtenerX() - otro.obtenerX(), 2) + Math.pow(this.obtenerY() - otro.obtenerY(), 2));
 	}
-	
+
 }

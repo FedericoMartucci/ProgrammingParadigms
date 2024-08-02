@@ -33,7 +33,7 @@ public class CirculoTest {
 	@Test
 	public void cambiarValorDiametro() {
 		Circulo c = new Circulo();
-		
+
 		c.setDiametro(4);
 
 		assertEquals(2, c.getRadio());
@@ -49,10 +49,10 @@ public class CirculoTest {
 	@Test
 	public void cambiarValorPerimetro() {
 		Circulo c = new Circulo();
-		
+
 		c.setPerimetro(10);
 
-		assertEquals(10/(2 * Math.PI), c.getRadio());
+		assertEquals(10 / (2 * Math.PI), c.getRadio());
 	}
 
 	@Test
@@ -65,7 +65,7 @@ public class CirculoTest {
 	@Test
 	public void cambiarValorArea() {
 		Circulo c = new Circulo();
-		
+
 		c.setArea(10);
 
 		assertEquals(Math.sqrt(10 / Math.PI), c.getRadio());

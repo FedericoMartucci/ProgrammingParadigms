@@ -74,7 +74,7 @@ class PuntoTest {
 	public void distanciaDelPuntoAOtroPunto() {
 		Punto p1 = new Punto(10, 5);
 		Punto p2 = new Punto(6, 2);
-		
+
 		assertEquals(5, p1.distanciaAotroPunto(p2));
 	}
 
