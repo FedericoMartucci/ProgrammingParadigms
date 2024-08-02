@@ -29,6 +29,7 @@ public class Cerradura {
 		if (this.fallosConsecutivos == this.fallosPosibles) {
 			System.out.println("La cerradura se ha bloqueado"); // Seria mejor una excepcion pero no se vio a esta
 																// instancia.
+			this.estaBloqueada = true;
 			return false;
 		}
 
