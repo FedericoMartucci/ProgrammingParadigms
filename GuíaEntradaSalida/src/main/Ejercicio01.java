@@ -12,7 +12,7 @@ public class Ejercicio01 {
 		int[] lote = {7, 1, 3, 2, 1, 3, 8, 2};
 		Ejercicio01.crearLote(lote, Ejercicio01.nombreArchivo);
 		
-		int[] datos = arch.leerArchivo();
+		int[] datos = arch.leerArchivoEj01();
 		
 		System.out.println("caso01.in:");
 		Ejercicio01.imprimirArrayEnteros(datos);
@@ -22,12 +22,12 @@ public class Ejercicio01 {
 		System.out.println("caso01.out:");
 		Ejercicio01.imprimirArrayEnteros(datosProcesados);
 		
-		arch.guardarArchivo(datosProcesados);
+		arch.guardarArchivoEj01(datosProcesados);
 	}
 	
 	private static void crearLote(int[] lote, String nombreArch) {
 		Archivo arch = new Archivo(nombreArch);
-		arch.guardarArchivo(lote);
+		arch.guardarArchivoEj01(lote);
 	}
 	
 	private static int[] procesarDatos(int[] datos) {
