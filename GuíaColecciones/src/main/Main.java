@@ -2,6 +2,8 @@ package main;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.HashMap;
 
 import colecciones.conjuntos.Ejercicio03;
 import colecciones.conjuntos.Ejercicio04;
@@ -10,6 +12,7 @@ import colecciones.listas.Ejercicio01;
 import colecciones.listas.Ejercicio02;
 import colecciones.listas.Paquete;
 import colecciones.listas.Venta;
+import colecciones.mapas.Ejercicio05;
 
 public class Main {
 
@@ -73,6 +76,31 @@ public class Main {
 
 		// Mostrar los títulos únicos
 		tiendaLibros.mostrarTitulos();
+
+		System.out.println("------------");
+
+		Ejercicio05 ej05 = new Ejercicio05();
+		ej05.agregarVenta(new Venta(LocalDateTime.now(), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 1, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.now(), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 1, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 2, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 2, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.now(), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 1, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.now(), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.now(), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 1, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 3, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 3, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 12, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 11, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 11, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 11, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.of(2024, 11, 7, 15, 23), "Cliente A", 150.75));
+		ej05.agregarVenta(new Venta(LocalDateTime.now(), "Cliente A", 150.75));
+
+		ej05.mostrarVentas();
 	}
 
 }
