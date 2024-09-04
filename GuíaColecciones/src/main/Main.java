@@ -2,6 +2,7 @@ package main;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 import colecciones.colas.Ejercicio07;
 import colecciones.colas.Ejercicio08;
@@ -16,6 +17,7 @@ import colecciones.listas.Venta;
 import colecciones.mapas.Ejercicio05;
 import colecciones.mapas.Ejercicio06;
 import colecciones.pilas.Ejercicio09;
+import colecciones.pilas.Ejercicio10;
 
 public class Main {
 
@@ -177,13 +179,31 @@ public class Main {
 				"{}", // Válida
 				"[]" // Válida
 		};
-
+		Arrays.sort(expresiones);
 		// Ejecutar pruebas
 		for (String expresion : expresiones) {
 			Ejercicio09 ej = new Ejercicio09(expresion);
 			boolean esValida = ej.validarExpresion();
 			System.out.println("Expresión: \"" + expresion + "\" -> " + (esValida ? "Válida" : "Inválida"));
 		}
+
+		System.out.println("------------");
+
+		Ejercicio10 terminal = new Ejercicio10();
+
+		// Ejemplo de uso
+		terminal.introducirComando("Comando1");
+		terminal.introducirComando("Comando2");
+		terminal.introducirComando("Comando3");
+
+		terminal.mostrarComandos();
+
+		terminal.deshacerComando();
+		terminal.mostrarComandos();
+
+		terminal.deshacerComando();
+		terminal.deshacerComando();
+		terminal.deshacerComando(); // Intento de deshacer cuando la pila está vacía
 	}
 
 }

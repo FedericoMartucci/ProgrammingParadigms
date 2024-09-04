@@ -12,7 +12,7 @@ public class Ejercicio07 {
 	 * recibieron.
 	 */
 
-	Queue<Tarea> colaTareas;
+	private Queue<Tarea> colaTareas;
 
 	public Ejercicio07() {
 		this.colaTareas = new ArrayDeque<Tarea>();

@@ -1,9 +1,6 @@
 package colecciones.pilas;
 
-import java.util.Iterator;
 import java.util.Stack;
-
-import colecciones.colas.Tarea;
 
 public class Ejercicio09 {
 	/*

@@ -1,5 +1,7 @@
 package colecciones.pilas;
 
+import java.util.Stack;
+
 public class Ejercicio10 {
 	/*
 	 * Un programa necesita procesar una serie de comandos de usuario que se reciben
@@ -12,4 +14,25 @@ public class Ejercicio10 {
 	 * modelar la clase Terminal con sus métodos para introducir comandos y
 	 * deshacerlos.
 	 */
+
+	private Stack<String> comandos;
+
+	public Ejercicio10() {
+		comandos = new Stack<String>();
+	}
+
+	public void introducirComando(String comando) {
+		comandos.push(comando);
+	}
+
+	public void deshacerComando() {
+		if (comandos.isEmpty())
+			throw new RuntimeException("La pila esta vacia");
+		comandos.pop();
+	}
+
+	public void mostrarComandos() {
+		System.out.println("Comandos actuales en la pila: " + comandos);
+	}
+
 }
