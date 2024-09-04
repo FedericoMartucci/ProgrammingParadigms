@@ -2,9 +2,10 @@ package main;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.HashMap;
 
+import colecciones.colas.Ejercicio07;
+import colecciones.colas.Ejercicio08;
+import colecciones.colas.Tarea;
 import colecciones.conjuntos.Ejercicio03;
 import colecciones.conjuntos.Ejercicio04;
 import colecciones.conjuntos.Libro;
@@ -13,6 +14,8 @@ import colecciones.listas.Ejercicio02;
 import colecciones.listas.Paquete;
 import colecciones.listas.Venta;
 import colecciones.mapas.Ejercicio05;
+import colecciones.mapas.Ejercicio06;
+import colecciones.pilas.Ejercicio09;
 
 public class Main {
 
@@ -101,6 +104,86 @@ public class Main {
 		ej05.agregarVenta(new Venta(LocalDateTime.now(), "Cliente A", 150.75));
 
 		ej05.mostrarVentas();
+		System.out.println("------------");
+
+		Ejercicio06 ej06 = new Ejercicio06();
+		ej06.agregarNota("Federico Martucci", 10);
+		ej06.agregarNota("Juan Bianchi", 5);
+		ej06.agregarNota("Agustin Brocani", 5);
+		ej06.agregarNota("Federico Martucci", 10);
+		ej06.agregarNota("Federico Martucci", 4);
+		ej06.agregarNota("Federico Martucci", 6);
+		ej06.agregarNota("Agustin Brocani", 2);
+		ej06.agregarNota("Agustin Brocani", 5);
+		ej06.agregarNota("Federico Martucci", 8);
+		ej06.agregarNota("Juan Bianchi", 3);
+		ej06.agregarNota("Juan Bianchi", 10);
+		ej06.agregarNota("Juan Bianchi", 9);
+		ej06.agregarNota("Federico Martucci", 5);
+		ej06.agregarNota("Juan Bianchi", 7);
+		ej06.agregarNota("Federico Martucci", 8);
+		ej06.agregarNota("Federico Martucci", 5);
+		ej06.agregarNota("Javier Milei", 1);
+		ej06.agregarNota("Federico Martucci", 5);
+		ej06.agregarNota("Javier Milei", 3);
+		ej06.agregarNota("Javier Milei", 10);
+		ej06.agregarNota("Javier Milei", 7);
+		ej06.agregarNota("Federico Martucci", 6);
+		ej06.agregarNota("Javier Milei", 4);
+		ej06.agregarNota("Federico Martucci", 10);
+		ej06.agregarNota("Federico Martucci", 10);
+		ej06.agregarNota("Javier Milei", 1);
+		ej06.agregarNota("Federico Martucci", 3);
+
+		ej06.mostrarNotas();
+		System.out.println("------------");
+		ej06.obtenerPromedioNotas();
+		System.out.println("------------");
+		ej06.obtenerPromedioNotas("Federico Martucci");
+
+		System.out.println("------------");
+
+		Ejercicio07 ej07 = new Ejercicio07();
+		for (int i = 0; i < 10; i++)
+			ej07.agregarTarea(new Tarea("tarea " + (i + 1), "descripcion " + (i + 1), i + 1));
+		ej07.mostrarTareasRecibidas();
+
+		System.out.println("------------");
+
+		Ejercicio08 ej08 = new Ejercicio08();
+		for (int i = 0; i < 10; i++)
+			ej08.agregarTarea(new Tarea("tarea " + (i + 1), "descripcion " + (i + 1), i + 1));
+		ej08.mostrarTareasRecibidas();
+		System.out.println("------------");
+		ej08.invertirTareas();
+		ej08.mostrarTareasRecibidas();
+
+		System.out.println("------------");
+
+		String[] expresiones = { "((a + b) * (c - d))", // Válida
+				"{[(2 * 3) + (4 / 2)] - 5}", // Válida
+				"([1 + 2] * {3 + 4}) - ((5 - 6) / 7)", // Válida
+				"x = (y + z) * (a / b) - [c + {d * e}]", // Válida
+				"((a + b) * (c - d)", // Inválida (falta un paréntesis de cierre)
+				"[(1 + 2) * {3 + 4}", // Inválida (falta una llave de cierre)
+				"([1 + 2]) * (3 + 4))", // Inválida (paréntesis de cierre extra)
+				"({[(a + b) * c] - d}", // Inválida (falta un paréntesis de cierre)
+				"{[1 + 2] * (3 + 4)", // Inválida (falta una llave de cierre)
+				"function() { return [1, 2, (3 + 4)]; }", // Válida
+				"if (x > y) { z = x + [a - (b / c)] }", // Válida
+				"{[(2 * (3 + 4))] - [5 / (6 + 7)]}", // Válida
+				"", // Válida (vacía)
+				"()", // Válida
+				"{}", // Válida
+				"[]" // Válida
+		};
+
+		// Ejecutar pruebas
+		for (String expresion : expresiones) {
+			Ejercicio09 ej = new Ejercicio09(expresion);
+			boolean esValida = ej.validarExpresion();
+			System.out.println("Expresión: \"" + expresion + "\" -> " + (esValida ? "Válida" : "Inválida"));
+		}
 	}
 
 }
