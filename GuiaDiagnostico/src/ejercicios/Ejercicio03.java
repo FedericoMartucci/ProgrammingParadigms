@@ -17,20 +17,20 @@ public class Ejercicio03 {
 	 */
 	public static int[][] resolver(int[][] m) {
 	    int [][]resultado = new int[m.length][m[0].length];
-	    
+	    int adyacente = 1;
 	    
 		for(int i = 0; i < m.length; i ++)
 			for(int j = 0; j < m[0].length; j ++) {
 				resultado[i][j] = 0;
-				int limiteInferior = i - 1 < 0? 0 : i - 1;
-				int limiteSuperior = i + 1 > m.length - 1? m.length - 1 : (i + 1);
+				int limiteInferior = i - adyacente < 0? 0 : i - adyacente;
+				int limiteSuperior = i + adyacente > m.length - adyacente? m.length - 1 : (i + adyacente);
 				for(int k = limiteInferior ; k <= limiteSuperior; k ++) {
 					int limiteInf;
 					int limiteSup;
 					
 					if(k == i) {
-						limiteInf = j - 1 < 0? 0 : j - 1;
-						limiteSup = j + 1 > m[0].length - 1? m[0].length - 1 : j + 1;
+						limiteInf = j - adyacente < 0? 0 : j - adyacente;
+						limiteSup = j + adyacente > m[0].length - 1? m[0].length - 1 : j + adyacente;
 					} else
 						limiteInf = limiteSup = j;
 

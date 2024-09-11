@@ -17,15 +17,15 @@ public class Ejercicio04 {
 	 */
 	public static int[] resolver(int[][] m) {
 		int resultado[] = new int[m.length];
+		Map<Integer, Integer> ocurrencias = new HashMap<>();
 
 		for(int i = 0; i < m.length; i++) {
-			Map<Integer, Integer> ocurrencias = new HashMap<>(); // Es conveniente esto o es mejor instanciar el objeto al inicio?
 			
 			for(int j = 0; j < m[0].length; j++)
 				ocurrencias.put(m[i][j], ocurrencias.getOrDefault(m[i][j],  0) + 1);
 
 			resultado[i] = obtenerModa(ocurrencias);
-			// ocurrencias.clear(); Es conveniente esto para evitar instanciar el objeto?
+			ocurrencias.clear();
 		}
 		return resultado;
 	}

@@ -25,7 +25,13 @@ public class Ejercicio05 {
 	
 	//-------------- Mi solucion ---------------
 	public static int[][] resolver(int[][] m) {
-	    int resultado[][] = new int[2 * m.length - 1][m.length];
+	    int resultado[][] = new int[2 * m.length - 1][];
+	    
+	    for(int i = 0; i < (2 * m.length - 1)/2; i ++)
+	    	resultado[i] = new int[i + 1];
+	    
+	    for(int i = (2 * m.length - 1)/2 - 1; i > 0; i --)
+	    	resultado[i] = new int[i];
 	    
 		if(m.length != m[0].length) {
 			System.out.println("La matriz no es cuadrada.");
