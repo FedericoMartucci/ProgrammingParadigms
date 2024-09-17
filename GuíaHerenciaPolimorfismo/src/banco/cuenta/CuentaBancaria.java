@@ -33,15 +33,15 @@ public class CuentaBancaria {
 
 	public BigDecimal retirar(BigDecimal monto) throws SaldoInsuficienteException {
 		try {
-			if (monto.compareTo(this.getSaldoActual()) < 0)
+			if (monto.compareTo(getSaldoActual()) < 0)
 				throw new SaldoInsuficienteException("No tenes saldo suficiente para realizar esa operacion.");
 			if (monto.compareTo(BigDecimal.ZERO) < 0)
 				throw new SaldoNegativoException("No se puede retirar un saldo negativo");
-			this.setSaldoActual(this.getSaldoActual().subtract(monto));
+			setSaldoActual(getSaldoActual().subtract(monto));
 		} catch (SaldoNegativoException e) {
 			System.err.println(e.getMessage());
 		}
-		return this.getSaldoActual();
+		return monto;
 	}
 
 	public void depositar(BigDecimal monto) {
