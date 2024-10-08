@@ -1,61 +1,51 @@
 package banco.cuenta;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
-public class CuentaBancaria {
+public abstract class CuentaBancaria {
 	private String nombrePropietario;
 	private BigDecimal saldoActual;
+	private List<Transaccion> transacciones;
 
-	public CuentaBancaria(String nombrePropietario, BigDecimal saldo) {
+	public CuentaBancaria(String nombrePropietario, BigDecimal saldo) throws SaldoNegativoException {
+		if (saldo.compareTo(BigDecimal.ZERO) < 0) {
+			throw new SaldoNegativoException("No se puede crear una cuenta con saldo negativo.");
+		}
 		this.nombrePropietario = nombrePropietario;
-		try {
-			if (saldo.compareTo(BigDecimal.ZERO) < 0)
-				throw new SaldoNegativoException("No se puede crear una cuenta con saldo negativo");
-			this.saldoActual = saldo;
-		} catch (SaldoNegativoException e) {
-			System.err.println(e.getMessage());
-			this.saldoActual = BigDecimal.ZERO;
-		}
+		this.saldoActual = saldo;
+		this.transacciones = new ArrayList<Transaccion>();
 	}
 
-	public void transferir(CuentaBancaria c, BigDecimal monto) throws SaldoInsuficienteException {
-		try {
-			if (monto.compareTo(this.getSaldoActual()) < 0)
-				throw new SaldoInsuficienteException("No tenes saldo suficiente para realizar esa operacion.");
-			if (monto.compareTo(BigDecimal.ZERO) < 0)
-				throw new SaldoNegativoException("No se puede retirar un saldo negativo");
-			this.setSaldoActual(this.getSaldoActual().subtract(monto));
-			c.setSaldoActual(c.getSaldoActual().add(monto));
-		} catch (SaldoNegativoException e) {
-			System.err.println(e.getMessage());
-		}
-	}
+	public BigDecimal retirar(BigDecimal monto) throws SaldoNegativoException, SaldoInsuficienteException {
+		if (monto.compareTo(BigDecimal.ZERO) <= 0)
+			throw new SaldoNegativoException("No se puede retirar un monto negativo o cero.");
+		if (monto.compareTo(getSaldoActual()) > 0)
+			throw new SaldoInsuficienteException("No tenes saldo suficiente para realizar esa operacion.");
 
-	public BigDecimal retirar(BigDecimal monto) throws SaldoInsuficienteException {
-		try {
-			if (monto.compareTo(getSaldoActual()) < 0)
-				throw new SaldoInsuficienteException("No tenes saldo suficiente para realizar esa operacion.");
-			if (monto.compareTo(BigDecimal.ZERO) < 0)
-				throw new SaldoNegativoException("No se puede retirar un saldo negativo");
-			setSaldoActual(getSaldoActual().subtract(monto));
-		} catch (SaldoNegativoException e) {
-			System.err.println(e.getMessage());
-		}
+		saldoActual = saldoActual.subtract(monto);
+        registrarTransaccion(monto, "Retiro de efectivo", TipoTransaccion.DEBITO);
 		return monto;
 	}
 
-	public void depositar(BigDecimal monto) {
-		try {
-			if (monto.compareTo(BigDecimal.ZERO) < 0)
-				throw new SaldoNegativoException("No se puede depositar saldo negativo.");
-			this.setSaldoActual(monto.add(getSaldoActual()));
-		} catch (SaldoNegativoException e) {
-			System.err.println(e.getMessage());
-		}
+	public void depositar(BigDecimal monto) throws SaldoNegativoException {
+		if (monto.compareTo(BigDecimal.ZERO) < 0)
+			throw new SaldoNegativoException("No se puede depositar saldo negativo.");
+		saldoActual = saldoActual.add(monto);
+		registrarTransaccion(monto, "Depósito de efectivo", TipoTransaccion.CREDITO);	}
 
+	public void transferir(CuentaBancaria cuentaDestino, BigDecimal monto) throws SaldoNegativoException {
+		retirar(monto);
+		cuentaDestino.depositar(monto);
+        registrarTransaccion(monto, "Transferencia a " + cuentaDestino.getNombrePropietario(), TipoTransaccion.DEBITO);
 	}
+	
+	public void registrarTransaccion(BigDecimal monto, String motivo, TipoTransaccion tipo) {
+        transacciones.add(new Transaccion(monto, motivo, tipo));
+    }
 
-	// Getters y Setters
+	// Getters
 	public String getNombrePropietario() {
 		return nombrePropietario;
 	}
@@ -63,14 +53,4 @@ public class CuentaBancaria {
 	public BigDecimal getSaldoActual() {
 		return saldoActual;
 	}
-
-	public void setNombrePropietario(String nombrePropietario) {
-		this.nombrePropietario = nombrePropietario;
-	}
-
-	public void setSaldoActual(BigDecimal nuevoSaldo) {
-		this.saldoActual = nuevoSaldo;
-	}
-
-	
 }
